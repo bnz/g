@@ -1,0 +1,183 @@
+/* штатный поиск Material скрыт: индекс зашифрован, тема без патча его не читает */
+.md-search,label.md-header__button[for=__search]{display:none !important}
+form[data-md-component=palette]{display:none !important}
+/* логотип-надпись шире квадратной иконки — даём ему высоту и место */
+.md-header__button.md-logo{padding-right:.2rem}
+.md-header__button.md-logo img{height:1.5rem;width:auto}
+#gs-results article{margin:1em 0;padding:.8em 1em;border-left:3px solid var(--md-primary-fg-color);background:var(--md-code-bg-color);border-radius:.2em}
+#gs-results article h4{margin:0 0 .4em}
+#gs-bar{display:flex;align-items:stretch;border-radius:2em;overflow:hidden;background:var(--md-code-bg-color)}
+#gs-bar:focus-within{box-shadow:0 0 0 .1rem var(--md-default-fg-color--lighter)}
+#gs-input{flex:1;min-width:0;padding:.7em 1.1em;font:inherit;font-size:1em;border:none;background:none;color:inherit}
+#gs-input:focus{outline:none}
+#gs-go{padding:.7em 1.4em;font:inherit;font-weight:700;cursor:pointer;white-space:nowrap;border:none;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color)}
+#gs-go:hover{background:var(--md-accent-fg-color)}
+#gs-results .gs-meta{font-size:.7rem;opacity:.65;margin-bottom:.15em}
+#gs-results p{margin:0}
+#gs-facets{display:flex;flex-wrap:wrap;gap:.35em .9em;align-items:center;margin:.7em 0 .2em;font-size:.78rem}
+.gs-facet{display:inline-flex;align-items:center;gap:.3em;cursor:pointer;white-space:nowrap}
+.gs-facet input{margin:0}
+.gs-n{opacity:.55}
+.gs-mode{margin-left:.4em;padding-left:.9em;border-left:1px solid var(--md-default-fg-color--lightest)}
+.gs-all,.gs-hist{background:none;border:none;padding:0;color:var(--md-accent-fg-color);cursor:pointer;font:inherit;text-decoration:underline}
+#gs-history{display:none;flex-wrap:wrap;gap:.4em;align-items:center;margin:.7em 0 0;font-size:.78rem}
+#gs-history.on{display:flex}
+.gs-q{background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:1em;padding:.15em .7em;cursor:pointer;font:inherit;color:inherit}
+.gs-q:hover{border-color:var(--md-accent-fg-color)}
+.gs-clear{background:none;border:none;padding:0 .3em;color:var(--md-default-fg-color--light);cursor:pointer;font:inherit;text-decoration:underline}
+.gs-empty{opacity:.55}
+#gs-results mark{background:var(--md-accent-fg-color--transparent);color:inherit;padding:0 .1em}
+/* матрица посещаемости: свой скролл-бокс, sticky шапка и первая колонка */
+.matrix-wrap{overflow-x:auto;margin:1em 0;border:.05rem solid var(--md-typeset-table-color)}
+table.matrix{border-collapse:separate;border-spacing:0;margin:0;font-size:.72rem}
+table.matrix th,table.matrix td{padding:.5em .8em;text-align:center;white-space:nowrap;border-bottom:.05rem solid var(--md-typeset-table-color)}
+table.matrix thead th{position:sticky;top:0;z-index:2;white-space:nowrap;background:var(--md-default-bg-color);border-bottom-width:.1rem}
+table.matrix tbody th,table.matrix thead th:first-child{position:sticky;left:0;background:var(--md-default-bg-color);text-align:left;white-space:nowrap;font-weight:400;z-index:1;border-right:.05rem solid var(--md-typeset-table-color)}
+table.matrix thead th:first-child{z-index:3;font-weight:700}
+table.matrix--wide{width:100%}
+table.matrix--wide th:last-child,table.matrix--wide td:last-child{text-align:left;width:100%}
+/* раздел «Занятия»: годовые блоки; обложка и год — sticky при скролле списка */
+h1,h2,h3,h4,.year-block{scroll-margin-top:4.2rem}
+.year-block{display:flex;gap:1.6rem;align-items:flex-start;margin:.6em 0 2.2em;scroll-margin-top:4.5rem}
+.year-side{position:sticky;top:3rem;flex:none;width:11rem;max-width:35%}
+.year-side .year-title{margin:0 0 .5em}
+.year-cover{display:block;width:100%;height:auto;margin:0;border-radius:.25rem;box-shadow:0 .15rem .5rem rgba(0,0,0,.25)}
+.year-list{margin:0 !important}
+/* На странице года обложка должна быть той же ширины, что на «Все занятия»,
+   где её держит .year-side шириной 11rem. Селектор обязан быть с img:
+   у темы есть .md-typeset img{max-width:100%} со специфичностью 0-1-1,
+   и голый .year-cover--wide (0-1-0) она перебивает — картинка растягивалась
+   во всю ширину колонки. */
+.md-typeset img.year-cover--wide{max-width:11rem;margin:0 0 1.2em}
+/* полоска годов на странице года и подвал соседних занятий */
+.year-strip{display:flex;flex-wrap:wrap;gap:.4rem;margin:.2em 0 1.2em}
+.year-strip a{padding:.15em .7em;border-radius:1em;font-size:.8rem;border:.05rem solid var(--md-typeset-table-color);text-decoration:none}
+.year-strip a.on{background:var(--md-code-bg-color);font-weight:700}
+.ep-nav{display:flex;flex-wrap:wrap;gap:.2em .9em;margin:2.4em 0 .4em;padding-top:.9em;border-top:.05rem solid var(--md-typeset-table-color);font-size:.82rem}
+/* аватарки: нарезка из группового шаржа, вшита в страницу base64-ом */
+.avatar{border-radius:.9rem;background:var(--md-code-bg-color)}
+.av-sm{display:inline-block;width:34px;height:34px;border-radius:.5rem;vertical-align:middle;margin-right:.45rem}
+.av-lg{float:right;width:156px;height:156px;margin:.2rem 0 1rem 1.4rem;box-shadow:0 1px 6px rgba(0,0,0,.18)}
+@media (max-width:44rem){.av-lg{width:104px;height:104px;margin-left:1rem}}
+.group-art{margin:1.4em 0;text-align:center}
+.group-art img{max-width:100%;border-radius:.6rem;box-shadow:0 2px 10px rgba(0,0,0,.22)}
+.group-art figcaption{font-size:.76rem;margin-top:.5em;color:var(--md-default-fg-color--light)}
+/* пустое оглавление (как на «Занятиях») не резервирует правую колонку */
+.md-sidebar--secondary:not(:has(.md-nav__list li)){display:none}
+/* динамика: карточки цифр, бары долей, график */
+.stat-cards{display:flex;flex-wrap:wrap;gap:.7rem;margin:.6em 0 1.4em}
+.stat-card{border:.05rem solid var(--md-typeset-table-color);border-radius:.3rem;padding:.7em 1em;min-width:8.5rem;background:var(--md-code-bg-color)}
+.stat-card b{display:block;font-size:1.5em;color:var(--md-primary-fg-color)}
+.stat-card span{font-size:.72rem;opacity:.75}
+/* обзор портрета: разделы плитками, кликается вся плитка */
+.p-tiles{display:grid;gap:.8rem;margin:1.4em 0;grid-template-columns:repeat(auto-fill,minmax(11.5rem,1fr))}
+/* на телефоне auto-fill даёт одну колонку — прижимаем ровно к двум */
+@media (max-width:44rem){.p-tiles{grid-template-columns:1fr 1fr;gap:.6rem}}
+.md-typeset a.p-tile{display:grid;grid-template-columns:auto 1fr;column-gap:.55rem;align-items:center;color:inherit;text-decoration:none;border-radius:.3rem;padding:.8em .9em;background:var(--md-code-bg-color);box-shadow:0 .1rem .35rem rgba(0,0,0,.16);transition:box-shadow .15s,transform .15s}
+.md-typeset a.p-tile:hover{box-shadow:0 .2rem .7rem rgba(0,0,0,.26);transform:translateY(-.05rem)}
+.p-tile__ic{grid-column:1;font-size:2.3em;line-height:1}
+.p-tile__t{grid-column:2;line-height:1.2;font-weight:400}
+.p-tile__d{grid-column:1/-1;font-size:.68rem;opacity:.7;margin-top:.45rem;line-height:1.35}
+.bar{height:.35rem;background:var(--md-typeset-table-color);border-radius:.2rem;margin-top:.25em;min-width:4rem}
+.bar span{display:block;height:100%;background:var(--md-primary-fg-color);border-radius:.2rem}
+.lead-chart{width:100%;height:auto;margin:.5em 0 1.5em}
+.nav-dim{opacity:.35}
+/* вопросы по психологии */
+.q-askers{font-size:.72rem;opacity:.8}
+.q-item{margin:.45em 0;padding-left:.8em;border-left:.15rem solid var(--md-primary-fg-color)}
+.q-item p{margin:.2em 0}
+.q-meta{font-size:.72rem;opacity:.65;font-weight:400}
+.q-a{opacity:.9}
+.q-more{white-space:nowrap;font-size:.72rem}
+/* складные разделы занятия: анонс, градиент в фон, «Показать целиком» */
+.fold-body.fold-closed{max-height:7.5em;overflow:hidden;position:relative}
+.fold-body.fold-closed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4.5em;background:linear-gradient(transparent,var(--md-default-bg-color));pointer-events:none}
+.fold-more{margin:.3em 0 1.4em}
+/* у развёрнутого раздела «Свернуть» липнет к низу экрана — не надо
+   доскролливать длинный блок до конца, чтобы сложить его обратно */
+.fold-body:not(.fold-closed)+.fold-more{position:sticky;bottom:0;padding:.55em 0 .75em;margin-bottom:.65em;background:linear-gradient(transparent,var(--md-default-bg-color) 40%)}
+.fold-more a{cursor:pointer;font-size:.72rem;color:var(--md-default-fg-color--light);border-bottom:.05rem dashed var(--md-default-fg-color--lighter)}
+.fold-more a:hover{color:var(--md-accent-fg-color);border-color:currentColor}
+/* мобильный font boosting (встроенные браузеры мессенджеров, часть
+   Android) раздувает длинные абзацы, не трогая заголовки, — h1 выглядит
+   мельче текста. Элементы с max-height не бустятся (известный хак). */
+.md-typeset p,.md-typeset li,.md-typeset dd,.md-typeset td{max-height:1000000px}
+/* плейсхолдер в конце каждой страницы: контент не прижат к низу экрана;
+   по центру — маленький полупрозрачный шарик. Форму ввода пароля
+   исключаем: плагин шифрования вешает на неё тот же класс, и на
+   запертой странице шарик рисовался дважды, с двойной пустотой. */
+.md-content__inner:not(#mkdocs-decrypt-form)::after{content:"";display:block;height:33vh;background:radial-gradient(circle,var(--md-default-fg-color--lighter) 0 .22rem,transparent .3rem) center/100% 100% no-repeat}
+.toc-sub{padding-left:.6rem}
+/* содержание внутри страницы — только для мобильного */
+.page-toc{margin:.8rem 0 1.4rem;padding:.5rem .7rem;border-radius:.2rem;background:var(--md-code-bg-color);font-size:.72rem}
+.page-toc__t{display:block;font-weight:700;opacity:.75;margin-bottom:.2rem}
+.page-toc .md-nav__link{margin:.15rem 0}
+@media (min-width:76.25em){.page-toc{display:none}}
+/* хроника: год — разделитель, занятие — компактный заголовок */
+.md-typeset h2.chr-year{font-size:1.25em;margin:2.2em 0 .8em;padding-bottom:.2em;border-bottom:.05rem solid var(--md-default-fg-color--lighter)}
+.md-typeset h3.chr{font-size:1em;font-weight:700;margin:1.4em 0 .4em}
+.md-nav--secondary .toc-subs{margin:0;padding-left:.4rem;border-left:.05rem solid var(--md-typeset-table-color)}
+.toc-group>.md-nav__link{font-weight:700}
+.toc-group>.md-nav__link::after{content:' ▸';opacity:.55;font-weight:400}
+.toc-group:has(.toc-subs:not([hidden]))>.md-nav__link::after{content:' ▾'}
+/* Активный пункт левого сайдбара: у темы он отличается только цветом текста,
+   и в светлой теме теряется среди остальных. Добавляем серую подложку.
+   Фон рисуем тенью с растяжкой, а не padding: ширина и положение пункта
+   не меняются, поэтому строка не съезжает ни на десктопе, ни в мобильном
+   drawer, где у пунктов уже есть свои отступы. */
+.md-sidebar--primary .md-nav__link--active{border-radius:.1rem;background:var(--md-default-fg-color--lightest);box-shadow:0 0 0 .25rem var(--md-default-fg-color--lightest)}
+/* Вложенные уровни сайдбара (люди, разделы портрета, годы, занятия) стояли
+   вплотную и без внутренних отступов: строки читались как сплошной список,
+   а подложка активного пункта прилипала к тексту. Даём им поля и воздух.
+   Только на десктопе: в мобильном drawer у пунктов уже есть свои отступы
+   от темы, и вторые поверх них ломают выравнивание. */
+@media (min-width:76.25em){.md-sidebar--primary .md-nav__list .md-nav__list .md-nav__link{padding:.25rem .45rem;border-radius:.15rem;margin-top:.35em}.md-sidebar--primary .md-nav__list .md-nav__list .md-nav__link--active{box-shadow:none}}
+.drawer-toc{margin:0;padding-left:1em;list-style:none}
+.drawer-toc .md-nav__link{font-size:.68rem;opacity:.85;margin-top:.3em}
+@media (min-width:76.25em){.drawer-toc{padding-left:.7rem;border-left:.05rem solid var(--md-typeset-table-color);margin-left:.7rem}.gs-nav>.md-nav__list>.md-nav__item--nested>.md-nav__container{display:none}}
+/* отступ-линия списка людей — только на десктопе; в мобильном drawer панель штатная */
+@media (min-width:76.25em){.roster-list{margin-left:.7rem;border-left:.05rem solid var(--md-typeset-table-color);padding-left:.4rem}}
+@media (max-width:44rem){.year-block{flex-direction:column}.year-side{position:static;width:auto;max-width:none}.year-cover{width:75%;margin:0 auto}}
+/* избранное: звёздочка у заголовков и терминов глоссария */
+.fav-star{background:none;border:0;cursor:pointer;font-size:.85em;line-height:1;padding:0 .15em;margin-left:.35em;color:var(--md-default-fg-color--lighter);vertical-align:middle;transition:color .15s,transform .15s}
+.fav-star:hover{color:var(--md-accent-fg-color);transform:scale(1.2)}
+.fav-star--on{color:#e8a33d}
+h1 .fav-star{font-size:.6em}
+/* сам список избранного */
+/* список вровень с заголовком: Material даёт ul margin-left .625em и
+   li margin-left 1.25em, и обе перебивают правило по специфичности */
+.md-typeset ul.fav-list,[dir=ltr] .md-typeset ul.fav-list,[dir=rtl] .md-typeset ul.fav-list{list-style:none;margin:0;padding:0}
+.md-typeset ul.fav-list li,[dir=ltr] .md-typeset ul.fav-list li,[dir=rtl] .md-typeset ul.fav-list li{margin:0}
+.fav-list li{padding:.45em 0;border-bottom:.05rem solid var(--md-typeset-table-color)}
+.fav-list a{flex:1}
+.fav-list__sec{font-size:.7em;opacity:.55;white-space:nowrap}
+.fav-edit{background:none;border:0;cursor:pointer;font-size:.8em;line-height:1;padding:0 .3em;color:var(--md-default-fg-color--lighter)}
+.fav-edit:hover{color:var(--md-default-fg-color--light)}
+.fav-del{background:none;border:0;cursor:pointer;font-size:1.1em;line-height:1;padding:0 .3em;color:var(--md-default-fg-color--lighter)}
+.fav-del:hover{color:var(--md-accent-fg-color)}
+.fav-n{font-size:.75em;opacity:.55;margin-left:.2em}
+.fav-actions{margin:1.6em 0 0;text-align:right}
+.fav-crumb{margin:0 .4em;opacity:.4;font-weight:400}
+.fav-crumb-n{margin-left:.45em;font-size:.6em;opacity:.5;vertical-align:middle}
+#fav-clear{background:none;cursor:pointer;font-size:.75em;padding:.4em .9em;border:.05rem solid var(--md-typeset-table-color);border-radius:.3em;color:var(--md-default-fg-color--light)}
+#fav-clear:hover{border-color:#c0392b;color:#c0392b}
+/* «Избранное» — последним пунктом и прижато к правому краю вкладок */
+.md-tabs__item.fav-tab{margin-left:auto}
+/* комментарии: кнопка у звезды, редактор, показ под записью */
+.fav-note{background:none;border:0;cursor:pointer;font-size:.7em;line-height:1;padding:0 .15em;margin-left:.25em;color:var(--md-default-fg-color--lighter);position:relative;vertical-align:middle}
+.fav-note:hover,.fav-note--on{color:var(--md-default-fg-color--light)}
+.fav-note__dot{position:absolute;top:-.15em;right:-.15em;width:.32em;height:.32em;border-radius:50%;background:currentColor;opacity:.85}
+h1 .fav-note{font-size:.5em}
+.fav-editor{margin:.6em 0 1em}
+.fav-editor textarea{width:100%;font:inherit;font-size:.8rem;padding:.5em .6em;border:.05rem solid var(--md-typeset-table-color);border-radius:.2em;background:var(--md-code-bg-color);color:inherit;resize:vertical}
+.fav-editor__bar{display:flex;gap:.5em;margin-top:.4em}
+.fav-editor__bar button{background:none;cursor:pointer;font-size:.72rem;padding:.35em .8em;border:.05rem solid var(--md-typeset-table-color);border-radius:.3em;color:var(--md-default-fg-color--light)}
+.fav-editor__bar button:hover{color:var(--md-default-fg-color)}
+.fav-editor__del{margin-left:auto}
+.fav-editor__del:hover{border-color:#c0392b;color:#c0392b}
+.fav-item__row{display:flex;align-items:baseline;gap:.6em}
+/* комментарий заметно блеклее самой записи: opacity:.75 в светлой теме
+   давала почти чёрный текст, и комментарий читался как часть записи */
+.fav-item__note{font-size:.78rem;margin:.15em 0 .1em;line-height:1.5;color:var(--md-default-fg-color--light)}
+/* хештеги в показе комментария — бейджами */
+.fav-tag{display:inline-block;font-size:.75em;padding:.05em .5em;margin:0 .15em .15em 0;border-radius:1em;background:var(--md-code-bg-color);border:.05rem solid var(--md-typeset-table-color);white-space:nowrap}
